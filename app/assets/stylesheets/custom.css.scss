@@ -2,18 +2,30 @@ body {
   font-family: SommetSlab, Georgia, "Times New Roman", serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 #page_container {
   margin-left: 30px;
 }
 
-nav.menu {
+nav.main-menu {
   display: block;
   float: left;
   width: 20%;
+  ul {
+    li {
+      list-style: none;
+    }
+  }
 }
 
 section#page {
-  display: block;
-  float: right;
-  width: 70%;
+  float: left;
+  width: 80%;
+}
+
+footer {
+  clear: both;
 }
