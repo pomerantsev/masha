@@ -1,3 +1,8 @@
+$linkColor: #535353;
+$linkColorHover: #b3b3b3;
+$linkColorVisited: #6e6e6e;
+$linkBackgroundColorActive: #d7ff00;
+
 body {
   font-family: SommetSlab, Georgia, "Times New Roman", serif;
 }
@@ -17,6 +22,22 @@ nav.main-menu {
   ul {
     li {
       list-style: none;
+      margin-bottom: 7px;
+      line-height: 2.1em;
+      a {
+        color: $linkColor;
+        &:visited {
+          color: $linkColorVisited;
+        }
+        &:hover {
+          color: $linkColorHover;
+        }
+      }
+      &.selected {
+        a {
+          background-color: $linkBackgroundColorActive;
+        }
+      }
     }
   }
 }
