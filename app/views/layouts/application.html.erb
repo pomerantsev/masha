@@ -15,10 +15,10 @@
       </nav>
       <section id="page">
         <%= yield %>
+        <footer>
+          <%= render "/refinery/footer" -%>
+        </footer>
       </section>
-      <footer>
-        <%= render "/refinery/footer" -%>
-      </footer>
     </div>
     <%= render "/refinery/javascripts" %>
   </body>
