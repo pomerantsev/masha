@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Rickrockstar::Application.load_tasks
+MashaPonomareva::Application.load_tasks
