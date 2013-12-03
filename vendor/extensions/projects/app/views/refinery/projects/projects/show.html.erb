@@ -1,48 +1,36 @@
-<% content_for :body_content_title do %>
+<h1>
   <%= @project.title %>
-<% end %>
+</h1>
 
-<% content_for :body do %>
+<section class="project-description">
+  <h1>Description</h1>
+  <p>
+    <%=raw @project.description %>
+  </p>
+</section>
+
+<section class="project-fields">
+  <h1>Fields</h1>
+  <p>
+    <%=raw @project.fields %>
+  </p>
+</section>
+
+<% @project.pictures.each do |picture| %>
   <section>
-    <h1>Title</h1>
     <p>
-      <%=raw @project.title %>
+      <%= image_fu picture.image, "600x800" %>
     </p>
   </section>
-  <section>
-    <h1>Fields</h1>
-    <p>
-      <%=raw @project.fields %>
-    </p>
-  </section>
-  <section>
-    <h1>Description</h1>
-    <p>
-      <%=raw @project.description %>
-    </p>
-  </section>
-
-  <% @project.pictures.each do |picture| %>
-    <section>
-      <p>
-        <%= image_fu picture.image, "600x800" %>
-      </p>
-    </section>
-  <% end %>
-
 <% end %>
 
-<% content_for :side_body do %>
-  <aside>
-    <h2><%= t('.other') %></h2>
-    <ul id="projects">
-      <% @projects.each do |project| %>
-        <li>
-          <%= link_to project.title, refinery.projects_project_path(project) %>
-        </li>
-      <% end %>
-    </ul>
-  </aside>
-<% end %>
-
-<%= render '/refinery/content_page' %>
+<aside>
+  <h2><%= t('.other') %></h2>
+  <ul id="projects">
+    <% @projects.each do |project| %>
+      <li>
+        <%= link_to project.title, refinery.projects_project_path(project) %>
+      </li>
+    <% end %>
+  </ul>
+</aside>
