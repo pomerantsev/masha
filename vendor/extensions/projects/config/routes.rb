@@ -13,6 +13,7 @@ Refinery::Core::Engine.routes.draw do
           post :update_positions
         end
       end
+      resources :pictures, only: [:create, :destroy]
     end
   end
 
