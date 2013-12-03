@@ -8,7 +8,7 @@ Refinery::Core::Engine.routes.draw do
   # Admin routes
   namespace :projects, :path => '' do
     namespace :admin, :path => Refinery::Core.backend_route do
-      resources :projects, :except => :show do
+      resources :projects do
         collection do
           post :update_positions
         end

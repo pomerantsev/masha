@@ -1,0 +1,30 @@
+<%= render 'project', project: @project %>
+
+<h2>Pics:</h2>
+
+<% @project.pictures.each do |picture| %>
+  <section>
+    <p>
+      <%= image_fu picture.image, "600x400" %>
+    </p>
+  </section>
+<% end %>
+
+<%= form_for [refinery, :projects_admin, @picture] do |f| -%>
+
+  <%= f.hidden_field :project_id -%>
+
+  <div class='field'>
+    <%= f.label :image -%>
+    <%= render '/refinery/admin/image_picker',
+               :f => f,
+               :field => :image_id,
+               :image => @picture.image,
+               :toggle_image_display => false -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.projects.admin.projects.picture'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => "Picture") -%>
+<% end -%>
