@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131129132116) do
+ActiveRecord::Schema.define(:version => 20131203102600) do
 
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
@@ -85,6 +85,14 @@ ActiveRecord::Schema.define(:version => 20131129132116) do
   add_index "refinery_pages", ["lft"], :name => "index_refinery_pages_on_lft"
   add_index "refinery_pages", ["parent_id"], :name => "index_refinery_pages_on_parent_id"
   add_index "refinery_pages", ["rgt"], :name => "index_refinery_pages_on_rgt"
+
+  create_table "refinery_pictures", :force => true do |t|
+    t.string   "title"
+    t.integer  "image_id"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "refinery_projects", :force => true do |t|
     t.string   "title"
