@@ -21,6 +21,15 @@
       <%=raw @project.description %>
     </p>
   </section>
+
+  <% @project.pictures.each do |picture| %>
+    <section>
+      <p>
+        <%= image_fu picture.image, "600x400" %>
+      </p>
+    </section>
+  <% end %>
+
 <% end %>
 
 <% content_for :side_body do %>
