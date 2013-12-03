@@ -6,6 +6,8 @@ module Refinery
       attr_accessible :title, :fields, :description, :position
 
       validates :title, :presence => true, :uniqueness => true
+
+      has_many :pictures
     end
   end
 end
