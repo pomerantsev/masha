@@ -1,11 +1,15 @@
-<% content_for :body do %>
-  <ul id="projects">
-    <% @projects.each do |project| %>
-      <li>
-        <%= link_to project.title, refinery.projects_project_path(project) %>
-      </li>
-    <% end %>
-  </ul>
+<% @projects.each do |project| %>
+    <p>
+      <% if project.pictures.present? %>
+        <%= link_to refinery.projects_project_path(project) do %>
+          <%= image_fu project.pictures.first.image, "600x800" %>
+        <% end %>
+      <% end %>
+    </p>
+    <p>
+      <%= link_to project.title, refinery.projects_project_path(project) %>
+    </p>
+    <p>
+      <%= project.fields %>
+    </p>
 <% end %>
-
-<%= render '/refinery/content_page' %>
