@@ -15,17 +15,21 @@ $body-width: $page-container-left-margin + $menu-width +
              $main-content-left-margin + $main-content-width +
              $third-column-left-margin + $third-column-width;
 
+@mixin link {
+  text-decoration: none;
+  color: $link-color;
+  &:visited {
+    color: $link-color-visited;
+  }
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
 @mixin nav-link-li {
   list-style: none;
   a {
-    text-decoration: none;
-    color: $link-color;
-    &:visited {
-      color: $link-color-visited;
-    }
-    &:hover {
-      color: $link-color-hover;
-    }
+    @include link;
   }
 }
 
@@ -121,11 +125,19 @@ h3 {
       text-align: right;
     }
   }
-  .project-pictures {
-    .picture {
-      display: block;
-      margin-top: 20px;
-    }
+}
+
+.picture {
+  display: block;
+  margin-top: 20px;
+}
+
+.back-to-top-container {
+  text-align: center;
+  margin-top: 70px;
+  font-size: 12px;
+  a {
+    @include link;
   }
 }
 
