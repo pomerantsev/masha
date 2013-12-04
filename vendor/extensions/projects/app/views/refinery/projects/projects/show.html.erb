@@ -33,7 +33,9 @@
 <section class="other-projects-previews">
   <% @other_projects_with_pictures.each do |project| %>
     <section class="picture">
-      <%= image_fu project.pictures.first.image, "600x6000" %>
+      <%= link_to refinery.projects_project_path(project) do %>
+        <%= image_fu project.pictures.first.image, "600x6000" %>
+      <% end %>
     </section>
   <% end %>
 </section>
