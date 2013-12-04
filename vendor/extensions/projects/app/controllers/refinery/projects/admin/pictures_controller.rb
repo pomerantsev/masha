@@ -8,6 +8,11 @@ module Refinery
           redirect_to refinery.projects_admin_project_url(@picture.project)
         end
 
+        def destroy
+          picture = Picture.find(params[:id]).destroy
+          redirect_to refinery.projects_admin_project_url(picture.project)
+        end
+
       end
     end
   end

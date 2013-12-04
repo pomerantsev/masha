@@ -2,11 +2,15 @@
 
 <h2>Pics:</h2>
 
+<div class="some-class">
+</div>
+
 <% @project.pictures.each do |picture| %>
-  <section>
-    <p>
-      <%= image_fu picture.image, "600x6000" %>
-    </p>
+  <section class="picture">
+    <%= image_fu picture.image, "600x6000" %>
+    <% unless picture.new_record? %>
+      <%= link_to "", refinery.projects_admin_picture_path(picture), class: "delete-link", method: "DELETE" %>
+    <% end %>
   </section>
 <% end %>
 
