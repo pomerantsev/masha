@@ -1,28 +1,30 @@
-<h1>
+<h2>
   <%= @project.title %>
-</h1>
+</h2>
 
-<section class="project-description">
-  <h1>Description</h1>
-  <p>
-    <%=raw @project.description %>
-  </p>
-</section>
-
-<section class="project-fields">
-  <h1>Fields</h1>
-  <p>
-    <%=raw @project.fields %>
-  </p>
-</section>
-
-<% @project.pictures.each do |picture| %>
-  <section>
+<section class="project-info">
+  <section class="project-description">
+    <h3>Description</h3>
     <p>
-      <%= image_fu picture.image, "600x6000" %>
+      <%=raw @project.description %>
     </p>
   </section>
-<% end %>
+
+  <section class="project-fields">
+    <h3>Fields</h3>
+    <p>
+      <%=raw @project.fields %>
+    </p>
+  </section>
+</section>
+
+<section class="project-pictures">
+  <% @project.pictures.each do |picture| %>
+    <section class="picture">
+      <%= image_fu picture.image, "600x6000" %>
+    </section>
+  <% end %>
+</section>
 
 <section class="other-projects-previews">
   <% @other_projects_with_pictures.each do |project| %>

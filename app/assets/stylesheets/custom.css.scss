@@ -68,11 +68,23 @@ header {
   }
 }
 
+h2 {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 24px 0;
+}
+
+h3 {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0 0 8px 0;
+}
+
 #page_container {
   margin-left: $page-container-left-margin;
 }
 
-nav.main-menu {
+.main-menu {
   display: block;
   float: left;
   width: $menu-width;
@@ -88,20 +100,33 @@ nav.main-menu {
 }
 
 .main-content {
+  font-size: 11px;
   float: left;
   margin-left: $main-content-left-margin;
   width: $main-content-width;
-}
+  .project-info {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .project-description {
+      width: 396px;
+      float: left;
+    }
 
-.project-description {
-  width: 396px;
-  float: left;
-}
-
-.project-fields {
-  width: 174px;
-  float: right;
-  text-align: right;
+    .project-fields {
+      width: 174px;
+      float: right;
+      text-align: right;
+    }
+  }
+  .project-pictures {
+    .picture {
+      display: block;
+      margin-top: 20px;
+    }
+  }
 }
 
 footer {
@@ -110,6 +135,7 @@ footer {
 }
 
 .third-column {
+  font-size: 11px;
   float:left;
   width: $third-column-width;
   margin-left: $third-column-left-margin;
