@@ -24,6 +24,14 @@
   </section>
 <% end %>
 
+<section class="other-projects-previews">
+  <% @other_projects_with_pictures.each do |project| %>
+    <p>
+      <%= image_fu project.pictures.first.image, "600x6000" %>
+    </p>
+  <% end %>
+</section>
+
 <aside>
   <h2><%= t('.other') %></h2>
   <ul id="projects">

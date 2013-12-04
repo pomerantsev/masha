@@ -13,6 +13,10 @@ module Refinery
 
       def show
         @project = Project.find(params[:id])
+        @other_projects_with_pictures =
+          (Project.order('position ASC') - [@project]).find_all do |project|
+            project.pictures.present?
+          end
 
         # you can use meta fields from your model instead (e.g. browser_title)
         # by swapping @page for @project in the line below:
