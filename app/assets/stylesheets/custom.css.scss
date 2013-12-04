@@ -1,15 +1,57 @@
-$bodyBackgroundColor: #e7e7e7;
-$headerColor: #252525;
-$linkColor: #535353;
-$linkColorHover: #b3b3b3;
-$linkColorVisited: #6e6e6e;
-$linkBackgroundColorActive: #d7ff00;
+$body-background-color: #e7e7e7;
+$header-color: #252525;
+$link-color: #535353;
+$link-color-hover: #b3b3b3;
+$link-color-visited: #6e6e6e;
+$link-background-color-active: #d7ff00;
+
+$page-container-left-margin: 30px;
+$menu-width: 138px;
+$main-content-left-margin: 30px;
+$main-content-width: 600px;
+$third-column-left-margin: 40px;
+$third-column-width: 182px;
+$body-width: $page-container-left-margin + $menu-width +
+             $main-content-left-margin + $main-content-width +
+             $third-column-left-margin + $third-column-width;
+
+@mixin nav-link-li {
+  list-style: none;
+  a {
+    text-decoration: none;
+    color: $link-color;
+    &:visited {
+      color: $link-color-visited;
+    }
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
+}
+
+@mixin nav-link-color-highlighted {
+  &.selected {
+    a {
+      background-color: $link-background-color-active;
+    }
+  }
+}
+
+@mixin nav-link-linethrough-highlighted {
+  &.selected {
+    a {
+      text-decoration: line-through;
+      color: $link-color;
+    }
+  }
+}
 
 body {
   font-family: SommetSlab, Georgia, "Times New Roman", serif;
-  background-color: $bodyBackgroundColor;
+  background-color: $body-background-color;
   font-size: 13px;
   margin: 0;
+  width: $body-width;
 }
 
 
@@ -20,49 +62,35 @@ header {
   #logo {
     font-size: 22px;
     a {
-      color: $headerColor;
+      color: $header-color;
       text-decoration: none;
     }
   }
 }
 
 #page_container {
-  margin-left: 30px;
+  margin-left: $page-container-left-margin;
 }
 
 nav.main-menu {
   display: block;
   float: left;
-  width: 138px;
+  width: $menu-width;
   ul {
     padding-left: 0;
     li {
-      list-style: none;
+      @include nav-link-li;
+      @include nav-link-color-highlighted;
       margin-bottom: 7px;
       line-height: 2.1em;
-      a {
-        text-decoration: none;
-        color: $linkColor;
-        &:visited {
-          color: $linkColorVisited;
-        }
-        &:hover {
-          color: $linkColorHover;
-        }
-      }
-      &.selected {
-        a {
-          background-color: $linkBackgroundColorActive;
-        }
-      }
     }
   }
 }
 
-section#page {
+.main-content {
   float: left;
-  margin-left: 30px;
-  width: 600px;
+  margin-left: $main-content-left-margin;
+  width: $main-content-width;
 }
 
 .project-description {
@@ -79,4 +107,21 @@ section#page {
 footer {
   clear: both;
   margin-top: 300px;
+}
+
+.third-column {
+  float:left;
+  width: $third-column-width;
+  margin-left: $third-column-left-margin;
+  .projects-list {
+    padding-left: 0;
+    margin: 13px 0;
+    li {
+      @include nav-link-li;
+      @include nav-link-linethrough-highlighted;
+      margin-bottom: 4px;
+      font-size: 11px;
+      line-height: 1.25em;
+    }
+  }
 }

@@ -13,12 +13,15 @@
       <nav class="main-menu">
         <%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
       </nav>
-      <section id="page">
+      <section class="main-content">
         <%= yield %>
         <footer>
           <%= render "/refinery/footer" -%>
         </footer>
       </section>
+      <aside class="third-column">
+        <%= yield :third_column %>
+      </aside>
     </div>
     <%= render "/refinery/javascripts" %>
   </body>

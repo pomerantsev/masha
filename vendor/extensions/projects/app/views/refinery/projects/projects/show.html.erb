@@ -32,13 +32,13 @@
   <% end %>
 </section>
 
-<aside>
+<% content_for :third_column do %>
   <h2><%= t('.other') %></h2>
-  <ul id="projects">
+  <ul class="projects-list">
     <% @projects.each do |project| %>
-      <li>
+      <li class="<%= 'selected' if project == @project %>">
         <%= link_to project.title, refinery.projects_project_path(project) %>
       </li>
     <% end %>
   </ul>
-</aside>
+<% end %>
