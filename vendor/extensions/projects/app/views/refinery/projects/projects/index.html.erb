@@ -1,11 +1,7 @@
 <% @projects.each do |project| %>
   <section class="project-preview">
     <section class="picture">
-      <% if project.pictures.present? %>
-        <%= link_to refinery.projects_project_path(project) do %>
-          <%= image_fu project.pictures.first.image, "600x6000" %>
-        <% end %>
-      <% end %>
+      <%= preview_image(project) %>
     </section>
     <section class="project-name">
       <%= link_to project.title,
