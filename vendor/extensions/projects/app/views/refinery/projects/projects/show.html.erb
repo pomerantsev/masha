@@ -28,20 +28,6 @@
   <% end %>
 </section>
 
-<section class="back-to-top-container">
-  <a href="#" class="js-back-to-top-link">Back To Top ↑</a>
-</section>
-
-<section class="other-projects-previews">
-  <% @other_projects_with_pictures.each do |project| %>
-    <section class="picture">
-      <%= link_to refinery.projects_project_path(project) do %>
-        <%= image_fu project.pictures.first.image, "600x6000" %>
-      <% end %>
-    </section>
-  <% end %>
-</section>
-
 <% content_for :third_column do %>
   <h2><%= t('.other') %></h2>
   <ul class="projects-list">
