@@ -7,13 +7,16 @@ $link-background-color-active: #d7ff00;
 
 $page-container-left-margin: 30px;
 $menu-width: 138px;
-$main-content-left-margin: 30px;
-$main-content-width: 900px;
+$menu-right-margin: 30px;
+$min-main-content-width: 600px;
+$max-main-content-width: 900px;
 $third-column-left-margin: 40px;
 $third-column-width: 182px;
-$body-width: $page-container-left-margin + $menu-width +
-             $main-content-left-margin + $main-content-width +
-             $third-column-left-margin + $third-column-width;
+$content-without-main-width: $page-container-left-margin + $menu-width +
+                             $menu-right-margin +
+                             $third-column-left-margin + $third-column-width;
+$min-body-width: $content-without-main-width + $min-main-content-width;
+$max-body-width: $content-without-main-width + $max-main-content-width;
 
 @mixin link {
   text-decoration: none;
@@ -56,7 +59,12 @@ body {
   background-color: $body-background-color;
   font-size: 13px;
   margin: 0 auto;
-  width: $body-width;
+  @media (min-width: $max-body-width) {
+    width: $max-body-width;
+  }
+  @media (max-width: $max-body-width - 1) {
+    width: $min-body-width;
+  }
 }
 
 
@@ -106,9 +114,8 @@ h3 {
 
 .main-content {
   font-size: 11px;
-  float: left;
-  margin-left: $main-content-left-margin;
-  width: $main-content-width;
+  margin-left: $menu-width + $menu-right-margin;
+  margin-right: $third-column-width + $third-column-left-margin;
   .project-info {
     &:after {
       content: "";
@@ -116,12 +123,12 @@ h3 {
       clear: both;
     }
     .project-description {
-      width: 396px;
+      width: 70%;
       float: left;
     }
 
     .project-fields {
-      width: 174px;
+      width: 30%;
       float: right;
       text-align: right;
     }
@@ -135,6 +142,16 @@ h3 {
 .picture {
   display: block;
   margin-top: 25px;
+}
+
+.picture img {
+  @media (min-width: $max-body-width) {
+    width: $max-main-content-width;
+  }
+  @media (max-width: $max-body-width - 1) {
+    width: $min-main-content-width;
+  }
+  height: auto;
 }
 
 .project-name {
@@ -151,7 +168,7 @@ footer {
 
 .third-column {
   font-size: 11px;
-  float:left;
+  float:right;
   width: $third-column-width;
   margin-left: $third-column-left-margin;
   .projects-list {
