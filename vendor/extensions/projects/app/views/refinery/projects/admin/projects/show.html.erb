@@ -7,7 +7,7 @@
 
 <% @project.pictures.each do |picture| %>
   <section class="picture">
-    <%= image_fu picture.image, "600x6000" %>
+    <%= image_fu picture.image, "900x100000" %>
     <% unless picture.new_record? %>
       <%= link_to "", refinery.projects_admin_picture_path(picture), class: "delete-link", method: "DELETE" %>
     <% end %>

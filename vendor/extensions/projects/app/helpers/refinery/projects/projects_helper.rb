@@ -10,7 +10,7 @@ module Refinery
         end
         if image
           link_to refinery.projects_project_path(project) do
-            image_fu image, "600x6000"
+            image_fu image, "900x100000"
           end
         end
       end

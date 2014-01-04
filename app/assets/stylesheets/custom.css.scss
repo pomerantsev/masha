@@ -8,7 +8,7 @@ $link-background-color-active: #d7ff00;
 $page-container-left-margin: 30px;
 $menu-width: 138px;
 $main-content-left-margin: 30px;
-$main-content-width: 600px;
+$main-content-width: 900px;
 $third-column-left-margin: 40px;
 $third-column-width: 182px;
 $body-width: $page-container-left-margin + $menu-width +
@@ -55,7 +55,7 @@ body {
   font-family: SommetSlab, Georgia, "Times New Roman", serif;
   background-color: $body-background-color;
   font-size: 13px;
-  margin: 0;
+  margin: 0 auto;
   width: $body-width;
 }
 
