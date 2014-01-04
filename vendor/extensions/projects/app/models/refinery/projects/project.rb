@@ -3,7 +3,8 @@ module Refinery
     class Project < Refinery::Core::BaseModel
       self.table_name = 'refinery_projects'
 
-      attr_accessible :title, :fields, :description, :position, :preview_id
+      attr_accessible :title, :fields, :description, :position, :preview_id,
+                      :copyright
 
       validates :title, :presence => true, :uniqueness => true
 
